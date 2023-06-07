@@ -24,31 +24,6 @@ jobs:
 
 NOTE - to understand possible values for the action input `flags`, run the SecureStack cli locally:
 
-`$ bloodhound-cli recon --help`
-
-## Create your SecureStack API Key as GitHub Secret
-
-1. Create a [SecureStack](https://app.securestack.com) account using your GitHub credentials.  You get 20 scans for free and you don't need to add a credit card.
-2. Once you are logged in go to "Settings" in the black drawer on the left, and then -> API tab.
-3. Generate an API key and copy the value.
-4. Go to Settings for your GitHub repository and click on Secrets -> Actions at the bottom left.
-5. Create a new secret named SECURESTACK_API_KEY and paste the value from step 2 into the field.
-
-## Retreiving your SecureStack Application ID
-
-1. Log in to [SecureStack](https://app.securestack.com).
-2. Open the application you wish to analyse.  If you haven't created a managed application you can follow the directions in this [VIDEO](https://youtu.be/mapgawLMVKg) to create one.  
-3. Copy the value of the application id on the View Application screen.
-4. Go to Settings for your GitHub repository and click on Secrets -> Actions at the bottom left.
-5. Create a new secret named SECURESTACK_APP_ID and paste the value from step 3 into the field.
-
-## Watch this video to learn how to setup your first GitHub Action with SecureStack
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/0sYXsCmY2es/0.jpg)](http://www.youtube.com/watch?v=0sYXsCmY2es "Video Title")
-
-
-
-NOTE - to understand possible values for the action input `flags`, run the SecureStack cli locally:
-
 `$ bloodhound-cli code --help`
 
 ## Create your SecureStack API Key and save as GitHub Secret
