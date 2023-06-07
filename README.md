@@ -45,6 +45,27 @@ NOTE - to understand possible values for the action input `flags`, run the Secur
 ## Watch this video to learn how to setup your first GitHub Action with SecureStack
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/0sYXsCmY2es/0.jpg)](http://www.youtube.com/watch?v=0sYXsCmY2es "Video Title")
 
+
+
+NOTE - to understand possible values for the action input `flags`, run the SecureStack cli locally:
+
+`$ bloodhound-cli code --help`
+
+## Create your SecureStack API Key and save as GitHub Secret
+
+1. Log in to [SecureStack](https://app.securestack.com) with your GitHub credentials.
+2. Go to Settings in the lower left corner, and then select the 6th tab: API.![Create API key](./images/securestack-create-apikey.png)
+3. Generate a new API key and copy the value.![Copy API key](./images/securestack-copy-apikey.png)
+4. Now back in GitHub, go to Settings for your GitHub repository and click on Secrets, and then Actions at the bottom left.
+5. Create a new secret named SECURESTACK_API_KEY and paste the value from step 2 into the field and click "Add secret".![Create GitHub Secret for API key](./images/securestack-github-apikey-secret.png)
+
+## Retreiving your SecureStack Application ID
+
+1. Log in to [SecureStack](https://app.securestack.com).
+2. In the application drop down at the top left choose the application you want to use and click on "Copy Application ID" ![Copy Application ID](./images/securestack-copy-appid.png)
+3. Create a new secret named SECURESTACK_APP_ID and paste the value from step 2 into the field and click "Add secret".![Create GitHub Secret for app_id](./images/securestack-github-appid-secret.png)
+4. When completed the two GitHub Secrets should look like this![Successfully created two secrets](./images/securestack-github-secrets-success.png)
+
 ## What vulnerabilities do we find?
 1. Scans web application for out of date and vulnerable application components
 2. Identifies whether basic security controls like WAF, firewalls, and security headers are being used
@@ -53,12 +74,19 @@ NOTE - to understand possible values for the action input `flags`, run the Secur
 5. Identifies if app is using CSP or security headers and whether they're working
 6. Finds WAF bypass attacks for Akamai, Cloudflare & Imperva
 
-## Check out our other GitHub Actions:
-1. [SecureStack Secrets Analysis](https://github.com/marketplace/actions/securestack-secrets-analysis) - Scan your application for embedded api keys, credentials and senstive data.
-2. [SecureStack Software Composition Analysis (SCA)](https://github.com/marketplace/actions/securestack-application-composition-analysis) - Scan your application for vulnerable third-party and open source libraries.
-3. [SecureStack Log4j Analysis](https://github.com/marketplace/actions/securestack-log4j-vulnerability-analysis) - Scan your application for Log4j/Log4Shell vulnerabilities.
+## How can I see the output of the web exposure analysis?
+1. You can view the analysis output right in the GitHub Action workflow output![workflow output](./images/securestack-exposure-output-action-log.png)
+2. You can run a local secrets analysis with our [bloodhound-cli : ](https://app.securestack.com/download-cli)
+``` bloodhound-cli recon -r -a <app_id> ```
 
-## Learn more about SecureStack with our YouTube Channel:
-https://www.youtube.com/watch?v=YrPITQNy9UM&list=PL_8Xjyi5rInxzhpQkDRipipmaj0lT6pJ8 
+3. You can interact with the analysis output in the SecureStack SaaS ![platform](./images/securestack-exposure-saas-view.png)
+
+## Check out our other GitHub Actions:
+1. [SecureStack Software Composition Analysis (SCA)](https://github.com/marketplace/actions/securestack-application-composition-analysis) - Scan your application for vulnerable third-party and open source libraries.
+2. [SecureStack Secret Scanning](https://github.com/marketplace/actions/securestack-secrets-analysis) - Scan your application for embedded api keys, credentials and senstive data.
+3. [SecureStack Web Vulnerability & Cloud Misconfiguration Analysis](https://github.com/marketplace/actions/securestack-web-vulnerability-analysis) - Scan your running application url for cloud misconfigurations and web vulnerabilities.
+4. [SecureStack Log4j Analysis](https://github.com/marketplace/actions/securestack-log4j-vulnerability-analysis) - Scan your application for Log4j/Log4Shell vulnerabilities.
+5. [SecureStack SBOM](https://github.com/marketplace/actions/securestack-sbom) - Create a software bill of materials (SBOM) for your application.
+6. Or, our [All-in-One GitHub Action](https://github.com/marketplace/actions/securestack-all-in-one-github-action) - We've put all of our actions together into one "Action to rule them ALL"!
 
 Made with 💜  by [SecureStack](https://securestack.com)
